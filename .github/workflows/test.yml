@@ -2,7 +2,7 @@ name: Dependency Check (ARM)
 
 on:
   push:
-    branches: [ main ]
+  pull_request:
 
 jobs:
   depcheck:
