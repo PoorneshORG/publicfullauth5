@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   push:
 
-
 jobs:
   validate:
     name: Run Dependency Check on ubuntu-latest
@@ -17,7 +16,13 @@ jobs:
       - name: Show architecture
         run: uname -m
 
-      - name: Create dummy Node project (for testing)
+      - name: Login to GHCR
+        env:
+          CR_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$CR_PAT" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Create dummy Node project
         run: |
           mkdir nodeapp
           cd nodeapp
