@@ -4,17 +4,42 @@ on:
   push:
   pull_request:
 
+# jobs:
+#   depcheck:
+#     runs-on: self-hosted
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Run OWASP Dependency Check
+#         uses: dependency-check/Dependency-Check_Action@main
+#         with:
+#           project: 'NodeApp'
+#           path: '.'
+#           format: 'HTML'
+#           out: 'reports'
+
 jobs:
-  depcheck:
-    runs-on: self-hosted
+  commits:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - name: Checkout code
+      - name: Greetings
+        run: echo "Hello Success"
+
+      - name: Checkout with minimal depth
         uses: actions/checkout@v4
 
-      - name: Run OWASP Dependency Check
+      - name: OWASP dependency check
+        if: ${{ runner.name == 'ubuntu-latest' }}
+        id: owasp-dep-check
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          project: 'NodeApp'
-          path: '.'
-          format: 'HTML'
-          out: 'reports'
+          project: pr-dependency-check-project
+          path: pr-dependency-check-project
+          out: reports
+          format: HTML
+          args: >
+            --format JSON
+        env:
+          JAVA_HOME: /opt/jdk
