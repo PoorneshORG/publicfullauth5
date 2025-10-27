@@ -10,7 +10,6 @@ pushed to it via GitHub webhooks. All [repositories](https://github.com/nodejs) 
 Please do, contributions are more than welcome!
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-
 ### Environment Variables
 
 - **`GITHUB_TOKEN`**<br>
