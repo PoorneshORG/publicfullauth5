@@ -12,6 +12,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Environment Variables
 
+
 - **`GITHUB_TOKEN`**<br>
   The [GitHub API token](https://github.com/blog/1509-personal-api-tokens) for your account (or bot account) that will be used to make API calls to GitHub. The account must have proper access to perform the actions required by your script.
 - **`GITHUB_WEBHOOK_SECRET`**<br>
