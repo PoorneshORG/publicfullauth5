@@ -6,7 +6,7 @@ on:
 
 jobs:
   depcheck:
-    runs-on: ubuntu-24.04-arm64
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
