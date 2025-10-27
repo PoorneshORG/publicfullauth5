@@ -3,7 +3,7 @@ name: Validate Multi-Arch Dependency Check
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+
 
 jobs:
   validate:
